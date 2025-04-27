@@ -45,10 +45,10 @@ jobs:
           task-definition: ${{ env.ECS_TASK_DEFINITION }}
           container-name: ${{ env.CONTAINER_NAME }}
           image: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
-          environment-variables: |
-            DB_HOST=${{ secrets.RDS_ENDPOINT }}
-            DB_USER=${{ secrets.DB_USER }}
-            DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          #environment-variables: |
+            #DB_HOST=${{ secrets.RDS_ENDPOINT }}
+            #DB_USER=${{ secrets.DB_USER }}
+            #DB_PASSWORD=${{ secrets.DB_PASSWORD }}
           execution-role-arn: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/ecsTaskExecutionRole
           log-configuration: |
             awslogs-region=${{ secrets.AWS_REGION }}
